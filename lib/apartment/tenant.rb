@@ -32,6 +32,10 @@ module Apartment
           elsif config[:adapter] =~ /postgresql/
             adapter_method = 'jdbc_postgresql_adapter'
           end
+        else
+          if config[:adapter] == "mysql2_json"
+            adapter_method = 'mysql2_adapter'
+          end
         end
 
         begin
